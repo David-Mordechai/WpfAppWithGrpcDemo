@@ -1,0 +1,25 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GrpcCommands";
+
+package Commands;
+
+service Commands {
+  rpc SendCommand1 (Command1Dto) returns (ResultDto);
+  rpc SendCommand2 (Command2Dto) returns (ResultDto);
+}
+
+message Command1Dto {
+	string Name = 1;
+	string Description = 2;
+}
+
+message Command2Dto {
+   string Name = 1;
+   string Description = 2;
+}
+
+message ResultDto {
+  bool success = 1;
+  string ErrorMessage = 2;
+}

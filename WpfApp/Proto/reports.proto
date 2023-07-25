@@ -1,0 +1,18 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "GrpcReports";
+
+package Reports;
+
+service Reports {
+  rpc Report1 (google.protobuf.Empty) returns (stream Report1Dto);
+}
+
+message Report1Dto {
+	string Name = 1;
+	string Description = 2;
+	google.protobuf.Timestamp DateTimeStamp = 3;
+}
